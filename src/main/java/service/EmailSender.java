@@ -14,7 +14,7 @@ public class EmailSender {
         System.out.println("Trwa wysyłanie wiadomości do " + reciever);
         Properties properties = new Properties();
 
-        try(InputStream inputStream = new FileInputStream("/src/main/resources/email.properties")) {
+        try(InputStream inputStream = new FileInputStream("src/main/resources/email.properties")) {
         properties.load(inputStream);
         } catch (IOException e){
             e.printStackTrace();
