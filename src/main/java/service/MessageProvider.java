@@ -28,9 +28,12 @@ public class MessageProvider {
     public static String getMessageByPackage(String pathToPackage, String packageName) throws Exception{
         List<String> classNames = ClassListProvider.getClassNamesByPackageName(
                 ClassListProvider.class.getClassLoader(),packageName);
-        String message = "<h1>W pakiecie " + packageName + " znajdują się " + classNames.size() + "klasy</h1><br>";
+        String message = "<h1>W pakiecie " + packageName + " znajduja sie " + classNames.size() + " klasy</h1>";
+        int i = 1;
         for(String string : classNames){
-            message += getMessage(pathToPackage + packageName + string + ".java");
+            message += "<h2>Klasa " + i + ":</h2>";
+            ++i;
+            message += getMessage(pathToPackage + packageName + "/" + string + ".java");
         }
         return message;
     }
