@@ -1,6 +1,7 @@
 package serviceTests;
 
 import service.EmailSender;
+import service.MessageProvider;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,6 +17,7 @@ public class EmailSenderTest {
         } catch (IOException e){
             e.printStackTrace();
         }
-        EmailSender.sendEmail(properties.getProperty("accountToSend"),"Test","Email testowy");
+        EmailSender.sendEmail(properties.getProperty("accountToSend"),"Test",
+                MessageProvider.getMessage("src/main/java/classRepository/HelloWorld.java"));
     }
 }
