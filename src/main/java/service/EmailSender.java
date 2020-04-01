@@ -41,7 +41,7 @@ public class EmailSender {
             message.setFrom(new InternetAddress(myAccount));
             message.setRecipient(Message.RecipientType.TO,new InternetAddress(adress));
             message.setSubject(subject);
-            message.setText(content);
+            message.setContent(content,"text/html");
             return message;
         } catch (Exception e) {
             e.printStackTrace();

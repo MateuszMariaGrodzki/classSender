@@ -8,11 +8,11 @@ import java.io.IOException;
 public class MessageProvider {
 
     public static String getMessage(String pathToClass){
-        String message = "";
+        String message = "<pre>";
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(pathToClass))){
             String currentLine = bufferedReader.readLine();
             while(currentLine != null){
-                message += currentLine;
+                message += currentLine + "&#10;";
                 currentLine = bufferedReader.readLine();
             }
         } catch(FileNotFoundException e){
@@ -20,6 +20,7 @@ public class MessageProvider {
         } catch(IOException ex){
             ex.printStackTrace();
         }
+        message += "</pre>";
         return message;
     }
 }
